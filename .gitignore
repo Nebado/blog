@@ -8,7 +8,7 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
-
+*.cache
 ###> symfony/phpunit-bridge ###
 .phpunit.result.cache
 /phpunit.xml
@@ -18,3 +18,7 @@
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
