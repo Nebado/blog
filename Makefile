@@ -4,7 +4,7 @@ EXEC_COMPOSER  = $(DOCKER_COMPOSE) exec -T php composer
 EXEC_PHP       = $(DOCKER_COMPOSE) exec -T php php
 
 # Protect targets
-.PHONY: php-cs-fixer phpcpd phpmd phpstan fix
+.PHONY: build tests php-cs-fixer phpcpd phpmd phpstan fix
 
 analyse: composer-valid container-linter mapping-valid phpstan phpmd phpcpd
 
@@ -37,3 +37,7 @@ mapping-valid:
 	@$(EXEC_SYMFONY) doctrine:schema:valid --skip-sync
 
 fix: php-cs-fixer
+
+tests:
+	@echo -e "\nRunning tests...\e[0m"
+	@$(EXEC_PHP) bin/phpunit
